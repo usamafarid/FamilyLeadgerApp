@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
+
+    alias(libs.plugins.ksp)   // ✅ kapt ki jagah ksp
 }
 
 android {
@@ -36,6 +38,28 @@ android {
 }
 
 dependencies {
+
+    // Room DB
+    implementation (libs.androidx.room.runtime)
+    ksp (libs.androidx.room.compiler)  // ✅
+    implementation (libs.androidx.room.ktx)
+
+    // ViewModel + LiveData
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    implementation (libs.androidx.lifecycle.livedata.ktx)
+
+    // Navigation Component
+    implementation (libs.androidx.navigation.fragment.ktx)
+    implementation (libs.androidx.navigation.ui.ktx)
+
+    // Coroutines
+    implementation (libs.kotlinx.coroutines.android)
+
+//    // MPAndroidChart
+//    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
+    // RecyclerView
+    implementation (libs.androidx.recyclerview)
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
