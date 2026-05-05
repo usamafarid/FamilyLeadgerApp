@@ -1,24 +1,24 @@
 package com.example.familyleadgerapp.database
 
-import android.view.textclassifier.SelectionEvent
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Transaction
 import androidx.room.Update
+import com.example.familyleadgerapp.model.Transaction
 
 @Dao
 interface TransactionDAO {
 
     @Insert
-    fun addTransaction()
+     suspend fun addTransaction(transaction: Transaction)
     @Update
-    fun updateTransaction()
+     suspend fun updateTransaction(transaction : Transaction)
     @Delete
-    fun deleteTransaction()
+    suspend fun deleteTransaction(transaction : Transaction)
 
-    @Query("SELECT * FROM t")
-    fun getAllTransaction()
+    @Query("SELECT * FROM transactions")
+    fun getAllTransaction(): LiveData<Transaction>
 
 }

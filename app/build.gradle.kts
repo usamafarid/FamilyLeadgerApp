@@ -35,10 +35,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    buildFeatures {
+        viewBinding=true
+    }
 }
 
 dependencies {
 
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.legacy.support.v4)
     // Room DB
     implementation (libs.androidx.room.runtime)
     ksp (libs.androidx.room.compiler)  // ✅
